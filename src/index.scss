@@ -1,0 +1,10 @@
+body {
+    background: url(./images/background.jpg) center center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.main-header__link,
+.main-header__logo {
+    font-weight: 700;
+}
