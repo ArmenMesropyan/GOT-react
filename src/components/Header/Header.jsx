@@ -23,7 +23,7 @@ const Header = ({pages}) => {
             <header className="main-header">
                 <Navbar className="main-header__nav" dark expand="md">
                     <Container>
-                        <NavbarBrand className="main-header__logo" href="/">GOT React</NavbarBrand>
+                        <NavbarBrand className="main-header__logo" href="/">Game Of Thrones DB</NavbarBrand>
 
                         <Nav className="main-header__list ml-auto" navbar>
                             {elements}
