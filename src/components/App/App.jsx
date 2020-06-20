@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Header} from '../index';
+import {Header, RandomChar} from '../index';
 
 export default class App extends Component {
     state = {
@@ -14,6 +14,7 @@ export default class App extends Component {
         return (
             <>
                 <Header pages={pages}/>
+                <RandomChar />
             </>
         );
     }

@@ -1,0 +1,12 @@
+.random-character {
+    &__list {
+        padding: 0;
+        list-style: none;
+    }
+    &__table td {
+        text-align: right;
+    }
+    &__title {
+        font-size: 25px;
+    }
+}
