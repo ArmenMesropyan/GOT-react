@@ -1,9 +1,15 @@
-
 @keyframes ldio-yef2p16hwes {
-  0% { transform: rotate(0deg) }
-  50% { transform: rotate(180deg) }
-  100% { transform: rotate(360deg) }
+    0% {
+        transform: rotate(0deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
 }
+
 .ldio-yef2p16hwes {
     width: 100%;
     height: 100%;
@@ -12,7 +18,7 @@
     backface-visibility: hidden;
     transform-origin: 0 0;
     & div {
-        box-sizing: content-box; 
+        box-sizing: content-box;
         position: absolute;
         animation: ldio-yef2p16hwes 1s linear infinite;
         width: 160px;
@@ -26,8 +32,9 @@
 }
 
 .loadingio-spinner-eclipse-5ctru5aaxqq {
-  width: 200px;
-  height: 200px;
-  display: inline-block;
-  overflow: hidden;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin: 0 auto;
+    overflow: hidden;
 }

@@ -1,0 +1,19 @@
+.random-character__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 19px;
+    color: #443f3f;
+    text-transform: uppercase;
+    padding: 20px 0;
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(./images/close.svg);
+        background-size: 100%;
+        margin-right: 10px;
+    }
+}
