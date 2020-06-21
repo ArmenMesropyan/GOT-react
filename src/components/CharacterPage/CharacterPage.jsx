@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {Table, Container, Row, Col} from 'reactstrap';
-import {Spinner, CharItem} from '../index';
+import {Spinner, CharItem, ErrorMsg} from '../index';
 import {GetCharacter} from '../../services';
-import './CharList.scss';
+import './CharacterPage.scss';
 
 export default class CharList extends Component {
 
     state = {
         characters: null,
         currentCharacter: null,
+        error: false,
     }
 
     getCharacter = new GetCharacter();
@@ -19,6 +20,7 @@ export default class CharList extends Component {
             this.setState({characters});
         } catch (error) {
             console.log(error);
+            this.setState({error: true});
         }
     }
 
@@ -39,8 +41,9 @@ export default class CharList extends Component {
     }
 
     render() {
-        let {characters, currentCharacter} = this.state;
+        let {characters, currentCharacter, error} = this.state;
 
+        if(error) return <ErrorMsg />
         if(!characters) return <Spinner />
 
         currentCharacter = !currentCharacter ? characters[0] : currentCharacter;

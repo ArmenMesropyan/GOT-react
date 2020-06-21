@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Button} from 'reactstrap';
+import './ToggleRandomChar.scss';
 
 const ToggleRandomChar = ({toggleRandomChar}) => {
     return (
