@@ -4,34 +4,34 @@ import {Spinner, ErrorMsg} from '../index';
 import {Table, Container, Card, CardBody, CardText, CardTitle, Row, Col} from 'reactstrap';
 import './RandomChar.scss';
 
-const View = ({char: {name, gender, born, died, culture}}) => (
+const View = ({char: {name, gender, born, died, culture}} = {}) => (
     <CardBody tag="li" className="random-character__item">
         <CardTitle tag="h3" className="random-character__title">
-            Random Character - {name}
+            Random Character - {name || 'no data.'}
         </CardTitle>
         <CardText tag="div" className="random-character__table">
             <Table>
                 <thead className="visually-hidden">
                 <tr>
-                    <th>{name}</th>
+                    <th>{name || 'no data.'}</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">Gender</th>
-                        <td>{gender}</td>
+                        <td>{gender || 'no data.'}</td>
                     </tr>
                     <tr>
                         <th scope="row">Born</th>
-                        <td>{born}</td>
+                        <td>{born || 'no data.'}</td>
                     </tr>
                     <tr>
                         <th scope="row">Died</th>
-                        <td>{died}</td>
+                        <td>{died || 'no data.'}</td>
                     </tr>
                     <tr>
                         <th scope="row">Culture</th>
-                        <td>{culture}</td>
+                        <td>{culture || 'no data.'}</td>
                     </tr>
                 </tbody>
             </Table>

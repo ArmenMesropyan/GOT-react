@@ -39,8 +39,11 @@ export default class CharList extends Component {
     }
 
     render() {
-        const {characters, currentCharacter} = this.state;
+        let {characters, currentCharacter} = this.state;
+
         if(!characters) return <Spinner />
+
+        currentCharacter = !currentCharacter ? characters[0] : currentCharacter;
 
         const elements = this.getCharactersHTML(characters);
 

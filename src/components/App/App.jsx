@@ -18,6 +18,7 @@ export default class App extends Component {
     render() {
         const {pages, showChar} = this.state;
         const randomChar = showChar ? <RandomChar /> : null;
+
         return (
             <>
                 <Header pages={pages}/>
