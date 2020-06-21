@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {GetCharacter} from '../../services';
 import {Spinner, ErrorMsg} from '../index';
-import {Table, Container, Card, CardBody, CardText, CardTitle, Button, Row, Col} from 'reactstrap';
+import {Table, Container, Card, CardBody, CardText, CardTitle, Row, Col} from 'reactstrap';
 import './RandomChar.scss';
 
 const View = ({char: {name, gender, born, died, culture}, generateCharacter}) => (
@@ -36,40 +36,40 @@ const View = ({char: {name, gender, born, died, culture}, generateCharacter}) =>
                 </tbody>
             </Table>
         </CardText>
-        <Button onClick={generateCharacter}>Get Random Character</Button>
     </CardBody>
 )
 
 export default class RandomChar extends Component {
-    constructor() {
-        super()
-        this.getCharacter = new GetCharacter();
-        this.state = {
-            char: {
-                name: null,
-                gender: null,
-                born: null,
-                died: null,
-                culture: null,
-            },
-            loading: true,
-            error: false,
-        };
+
+    getCharacter = new GetCharacter();
+
+    state = {
+        char: {
+            name: null,
+            gender: null,
+            born: null,
+            died: null,
+            culture: null,
+        },
+        loading: true,
+        error: false,
+    };
+
+    componentDidMount() {
         this.updateData();
+        this.timerId = setInterval(this.updateData, 1500);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerId);
     }
 
     onError() {
         this.setState({error: true, loading: false});
     }
 
-    loadSpinner() {
-        this.setState({loading: true});
-    }
-
     updateData = async () => {
         try {
-            this.loadSpinner();
-
             const id = Math.floor(Math.random() * 140 + 25);
             const char = await this.getCharacter.getCharacterById(id);
             this.setState({char, loading: false});
@@ -83,7 +83,7 @@ export default class RandomChar extends Component {
 
         const errorTemplate = error ? <ErrorMsg /> : null;
         const spinner = loading ? <Spinner /> : null;
-        const content = !(loading || error) ? <View char={char} generateCharacter={this.updateData}/> : null;
+        const content = !(loading || error) ? <View char={char}/> : null;
 
         return (
             <section className="random-character">
