@@ -1,0 +1,19 @@
+.char-list {
+    margin-top: 20px;
+    &__table {
+        background-color: #fff;
+        & td {
+            text-align: right;
+        }
+    }
+    &__characters {
+        background-color: #fff;
+    }
+    &__character {
+        padding: 0;
+        list-style: none;
+    }
+    &__title {
+        text-align: center;
+    }
+}

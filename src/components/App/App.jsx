@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Header, RandomChar} from '../index';
+import {Header, RandomChar, CharList} from '../index';
 import ToggleRandomChar from '../ToggleRandomChar/ToggleRandomChar';
 
 export default class App extends Component {
@@ -23,6 +23,7 @@ export default class App extends Component {
                 <Header pages={pages}/>
                 {randomChar}
                 <ToggleRandomChar toggleRandomChar={this.toggleRandomChar}/>
+                <CharList />
             </>
         );
     }

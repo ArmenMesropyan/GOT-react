@@ -3,9 +3,11 @@ import {Container, Button} from 'reactstrap';
 
 const ToggleRandomChar = ({toggleRandomChar}) => {
     return (
-        <Container>
-            <Button onClick={toggleRandomChar}>Toggle Random Character</Button>
-        </Container>
+        <section className="toggler">
+            <Container>
+                <Button onClick={toggleRandomChar} className="toggler__btn">Toggle Random Character</Button>
+            </Container>
+        </section>
     )
 }
 

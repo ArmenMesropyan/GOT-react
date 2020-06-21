@@ -4,7 +4,7 @@ import {Spinner, ErrorMsg} from '../index';
 import {Table, Container, Card, CardBody, CardText, CardTitle, Row, Col} from 'reactstrap';
 import './RandomChar.scss';
 
-const View = ({char: {name, gender, born, died, culture}, generateCharacter}) => (
+const View = ({char: {name, gender, born, died, culture}}) => (
     <CardBody tag="li" className="random-character__item">
         <CardTitle tag="h3" className="random-character__title">
             Random Character - {name}
