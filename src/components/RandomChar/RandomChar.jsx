@@ -4,7 +4,7 @@ import {Spinner, ErrorMsg} from '../index';
 import {Table, Container, Card, CardBody, CardText, CardTitle, Button, Row, Col} from 'reactstrap';
 import './RandomChar.scss';
 
-const View = ({char: {name, gender, born, died, culture}}) => (
+const View = ({char: {name, gender, born, died, culture}, generateCharacter}) => (
     <CardBody tag="li" className="random-character__item">
         <CardTitle tag="h3" className="random-character__title">
             Random Character - {name}
@@ -36,7 +36,7 @@ const View = ({char: {name, gender, born, died, culture}}) => (
                 </tbody>
             </Table>
         </CardText>
-        <Button>Get Random Character</Button>
+        <Button onClick={generateCharacter}>Get Random Character</Button>
     </CardBody>
 )
 
@@ -62,8 +62,14 @@ export default class RandomChar extends Component {
         this.setState({error: true, loading: false});
     }
 
+    loadSpinner() {
+        this.setState({loading: true});
+    }
+
     updateData = async () => {
         try {
+            this.loadSpinner();
+
             const id = Math.floor(Math.random() * 140 + 25);
             const char = await this.getCharacter.getCharacterById(id);
             this.setState({char, loading: false});
@@ -77,7 +83,7 @@ export default class RandomChar extends Component {
 
         const errorTemplate = error ? <ErrorMsg /> : null;
         const spinner = loading ? <Spinner /> : null;
-        const content = !(loading || error) ? <View char={char}/> : null;
+        const content = !(loading || error) ? <View char={char} generateCharacter={this.updateData}/> : null;
 
         return (
             <section className="random-character">
