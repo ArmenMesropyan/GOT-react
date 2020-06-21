@@ -87,6 +87,7 @@ export default class RandomChar extends Component {
 
         return (
             <section className="random-character">
+                <h2 className="visually-hidden">Random Character</h2>
                 <Container>
                     <Row>
                         <Col lg="7" md="10" sm="11" xs="12">

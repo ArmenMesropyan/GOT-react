@@ -8,6 +8,9 @@
     }
     &__characters {
         background-color: #fff;
+        & tr {
+            cursor: pointer;
+        }
     }
     &__character {
         padding: 0;

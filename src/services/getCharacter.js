@@ -12,13 +12,13 @@ export default class GetCharacter {
 
     async getAllCharacters() {
         try {
-            const num = Math.floor(Math.random() * 10 + 1);
+            const num = Math.floor(Math.random() * 30 + 1);
             const res = await fetch(`https://www.anapioficeandfire.com/api/characters?page=${num}&pageSize=10`)
                 .then(data => data.json());
 
             return res.map(this.transformCharacter);
         } catch (error) {
-
+            return Promise.reject(error);
         }
     }
 
