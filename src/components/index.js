@@ -6,3 +6,4 @@ export { default as ErrorMsg } from './ErrorMsg/ErrorMsg.jsx';
 export { default as ToggleRandomChar } from './ToggleRandomChar/ToggleRandomChar.jsx';
 export { default as CharList } from './CharacterPage/CharacterPage.jsx';
 export { default as CharItem } from './CharItem/CharItem.jsx';
+export { default as ItemList } from './ItemList/ItemList.jsx';

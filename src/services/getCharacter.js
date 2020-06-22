@@ -1,6 +1,6 @@
 export default class GetCharacter {
 
-    async getCharacterById(id) {
+    getCharacterById = async(id) => {
         try {
             const res = await fetch(`https://anapioficeandfire.com/api/characters/${id}`).then(data => data.json());
 
@@ -10,7 +10,7 @@ export default class GetCharacter {
         }
     }
 
-    async getAllCharacters() {
+    getAllCharacters = async() => {
         try {
             const num = Math.floor(Math.random() * 30 + 1);
             const res = await fetch(`https://www.anapioficeandfire.com/api/characters?page=${num}&pageSize=10`)

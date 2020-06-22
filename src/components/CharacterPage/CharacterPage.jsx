@@ -1,74 +1,34 @@
 import React, {Component} from 'react';
-import {Table, Container, Row, Col} from 'reactstrap';
-import {Spinner, CharItem, ErrorMsg} from '../index';
+import {Container, Row, Col} from 'reactstrap';
+import {CharItem, ItemList} from '../index';
 import {GetCharacter} from '../../services';
 import './CharacterPage.scss';
 
 export default class CharList extends Component {
 
     state = {
-        characters: null,
         currentCharacter: null,
-        error: false,
     }
 
     getCharacter = new GetCharacter();
 
-    async updateCharacters() {
-        try {
-            const characters = await this.getCharacter.getAllCharacters();
-            this.setState({characters});
-        } catch (error) {
-            console.log(error);
-            this.setState({error: true});
-        }
-    }
-
-    componentDidMount() {
-        this.updateCharacters();
-    }
-
-    showCharacter(currentCharacter) {
+    showCharacter = (currentCharacter) => {
         this.setState({currentCharacter});
     }
 
-    getCharactersHTML(arr) {
-        return arr.map((char, i) => (
-            <tr key={i}>
-                <td onClick={() => this.showCharacter(char)}>{char.name}</td>
-            </tr>
-        ))
-    }
-
     render() {
-        let {characters, currentCharacter, error} = this.state;
-
-        if(error) return <ErrorMsg />
-        if(!characters) return <Spinner />
-
-        currentCharacter = !currentCharacter ? characters[0] : currentCharacter;
-
-        const elements = this.getCharactersHTML(characters);
+        let {currentCharacter} = this.state;
 
         return (
             <section className="char-list">
                 <h2 className="visually-hidden">Characters List</h2>
                 <Container>
                     <Row>
-                        <Col lg="7">
-                            <Table className="char-list__characters">
-                                <thead className="visually-hidden">
-                                <tr>
-                                    <th>Characters List</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    {elements}
-                                </tbody>
-                            </Table>
+                        <Col lg="7" className="char-list__item item-list">
+                            <ItemList showItem={this.showCharacter} getData={this.getCharacter.getAllCharacters}/>
                         </Col>
                         <Col lg="5">
-                            <CharItem character={currentCharacter}/>
+                            <CharItem character={currentCharacter} renderErrorMsg={(<span>Please select character</span>)}/>
                         </Col>
                     </Row>
                 </Container>

@@ -1,0 +1,8 @@
+.item-list {
+    &__table {
+        background-color: #fff;
+        & tr {
+            cursor: pointer;
+        }
+    }
+}

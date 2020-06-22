@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {Table, Card, CardBody, CardText, CardTitle} from 'reactstrap';
-import {Spinner} from '../index';
 
 export default class CharItem extends Component {
     
     render() {
-        const {character} = this.props;
-        if(!character) return <Spinner />
+        const {character, renderErrorMsg} = this.props;
+        if(!character) return renderErrorMsg;
         const {name, gender, born, died, culture} = character;
 
         return (
