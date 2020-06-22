@@ -10,10 +10,10 @@ export default class ItemList extends Component {
     }
 
     getItemsHTML(arr) {
-        const {showItem} = this.props;
+        const {showItem, renderLabel} = this.props;
         return arr.map((item, i) => (
             <tr key={i}>
-                <td onClick={() => showItem(item)}>{item.name}</td>
+                <td onClick={() => showItem(item)}>{renderLabel(item)}</td>
             </tr>
         ))
     }

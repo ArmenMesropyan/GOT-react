@@ -25,10 +25,10 @@ export default class CharList extends Component {
                 <Container>
                     <Row>
                         <Col lg="7" className="char-list__item item-list">
-                            <ItemList showItem={this.showCharacter} getData={this.getCharacter.getAllCharacters}/>
+                            <ItemList showItem={this.showCharacter} getData={this.getCharacter.getAllCharacters} renderLabel={({name, gender}) => `${name} (${gender})`}/>
                         </Col>
                         <Col lg="5">
-                            <CharItem character={currentCharacter} renderErrorMsg={(<span>Please select character</span>)}/>
+                            <CharItem character={currentCharacter} renderErrorMsg={(<span className="char-list__error">Please select character</span>)}/>
                         </Col>
                     </Row>
                 </Container>
