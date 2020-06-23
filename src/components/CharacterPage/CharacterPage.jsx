@@ -4,6 +4,17 @@ import {CharItem, ItemList} from '../index';
 import {GetService} from '../../services';
 import './CharacterPage.scss';
 
+const RowBlock = ({left, right}) => (
+    <Row>
+        <Col lg="7" className="char-list__item item-list">
+            {left}
+        </Col>
+        <Col lg="5">
+            {right}
+        </Col>
+    </Row>
+);
+
 export default class CharList extends Component {
 
     state = {
@@ -18,29 +29,24 @@ export default class CharList extends Component {
 
     render() {
         let {currentCharacter} = this.state;
+        const itemList = (
+            <ItemList showItem={this.showCharacter} 
+                      getData={this.getService.getAllCharacters}
+                      renderLabel={({name, gender}) => `${name} (${gender})`}/>
+        );
+
+        const charItem = (
+            <CharItem character={currentCharacter}
+                      renderErrorMsg={
+                          (<span className="char-list__error">Please select character</span>)
+                      }/>
+        );
 
         return (
             <section className="char-list">
                 <h2 className="visually-hidden">Characters List</h2>
                 <Container>
-                    <Row>
-                        <Col lg="7" className="char-list__item item-list">
-                            <ItemList showItem={this.showCharacter} getData={this.getService.getAllCharacters} renderLabel={({name, gender}) => `${name} (${gender})`}/>
-                        </Col>
-                        <Col lg="5">
-                            <CharItem character={currentCharacter} renderErrorMsg={(<span className="char-list__error">Please select character</span>)}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col lg="7" className="char-list__item item-list">
-                            <ItemList showItem={this.showCharacter} getData={this.getService.getAllHouses} renderLabel={({name}) => name}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col lg="7" className="char-list__item item-list">
-                            <ItemList showItem={this.showCharacter} getData={this.getService.getAllBooks} renderLabel={({name, numberOfPages}) => `${name} ${numberOfPages}`}/>
-                        </Col>
-                    </Row>
+                    <RowBlock left={itemList} right={charItem}/>
                 </Container>
             </section>
         )
