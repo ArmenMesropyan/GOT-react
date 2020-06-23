@@ -13,9 +13,8 @@
     &__label td {
         text-align: right;
     }
-    &__table {
-        & td {
-            text-align: right;
-        }
+    &__item {
+        list-style: none;
+        padding: 0;
     }
 }

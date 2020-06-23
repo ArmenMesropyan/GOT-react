@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {ItemDetail, ItemList, Field, RowBlock} from '../index';
-import {GetService} from '../../services';
+import {ItemDetail, ItemList, Field, RowBlock} from '../../index';
+import {GetService} from '../../../services';
 import './CharacterPage.scss';
 
 export default class CharList extends Component {
@@ -25,7 +25,7 @@ export default class CharList extends Component {
 
         const charItem = (
             <ItemDetail item={currentCharacter}
-                        className="char-list"
+                        className="char-list__item"
                         renderErrorMsg={
                             (
                                 <span className="char-list__error">Please select character</span>
