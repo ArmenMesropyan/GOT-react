@@ -11,12 +11,12 @@ const Field = ({item, label, title, className}) => (
 class ItemDetail extends Component {
     
     render() {
-        const {item, renderErrorMsg} = this.props;
+        const {item, renderErrorMsg, className} = this.props;
         if(!item) return renderErrorMsg;
         const {name} = item;
 
         return (
-            <Card tag="ul">
+            <Card tag="ul" className={className}>
                 <CardBody tag="li">
                     <CardTitle tag="h3">
                         {name || 'no data.'}

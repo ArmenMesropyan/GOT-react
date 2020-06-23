@@ -25,11 +25,12 @@ export default class CharList extends Component {
 
         const charItem = (
             <ItemDetail item={currentCharacter}
-                      renderErrorMsg={
-                          (
-                            <span className="char-list__error">Please select character</span>
-                          )
-                      }>
+                        className="char-list"
+                        renderErrorMsg={
+                            (
+                                <span className="char-list__error">Please select character</span>
+                            )
+                        }>
                           <Field label="gender" title="Gender" className="char-list__label char-list__label_gender"/>
                           <Field label="died" title="Died" className="char-list__label char-list__label_died"/>
                           <Field label="born" title="Born" className="char-list__label char-list__label_born"/>
