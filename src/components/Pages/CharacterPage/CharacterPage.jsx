@@ -16,8 +16,8 @@ export default class CharList extends Component {
     }
 
     render() {
-        let {currentCharacter} = this.state;
-        const itemList = (
+        const {currentCharacter} = this.state;
+        const characterList = (
             <ItemList showItem={this.showCharacter} 
                       getData={this.getService.getAllCharacters}
                       renderLabel={({name, gender}) => `${name} (${gender})`}/>
@@ -41,7 +41,7 @@ export default class CharList extends Component {
         return (
             <section className="char-list">
                 <h2 className="visually-hidden">Characters List</h2>
-                <RowBlock left={itemList} right={charItem}/>
+                <RowBlock left={characterList} right={charItem}/>
             </section>
         )
     }
