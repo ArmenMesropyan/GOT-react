@@ -1,19 +1,7 @@
 import React, {Component} from 'react';
-import {Container, Row, Col} from 'reactstrap';
-import {ItemDetail, ItemList, Field} from '../index';
+import {ItemDetail, ItemList, Field, RowBlock} from '../index';
 import {GetService} from '../../services';
 import './CharacterPage.scss';
-
-const RowBlock = ({left, right}) => (
-    <Row>
-        <Col lg="7">
-            {left}
-        </Col>
-        <Col lg="5">
-            {right}
-        </Col>
-    </Row>
-);
 
 export default class CharList extends Component {
 
@@ -52,9 +40,7 @@ export default class CharList extends Component {
         return (
             <section className="char-list">
                 <h2 className="visually-hidden">Characters List</h2>
-                <Container>
-                    <RowBlock left={itemList} right={charItem}/>
-                </Container>
+                <RowBlock left={itemList} right={charItem}/>
             </section>
         )
     }

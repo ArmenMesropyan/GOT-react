@@ -7,3 +7,4 @@ export { default as ToggleRandomChar } from './ToggleRandomChar/ToggleRandomChar
 export { default as CharList } from './CharacterPage/CharacterPage.jsx';
 export { ItemDetail, Field } from './ItemDetail/ItemDetail.jsx';
 export { default as ItemList } from './ItemList/ItemList.jsx';
+export { default as RowBlock } from './RowBlock/RowBlock.jsx';
