@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import {CharItem, ItemList} from '../index';
+import {ItemDetail, ItemList, Field} from '../index';
 import {GetService} from '../../services';
 import './CharacterPage.scss';
 
 const RowBlock = ({left, right}) => (
     <Row>
-        <Col lg="7" className="char-list__item item-list">
+        <Col lg="7">
             {left}
         </Col>
         <Col lg="5">
@@ -36,10 +36,17 @@ export default class CharList extends Component {
         );
 
         const charItem = (
-            <CharItem character={currentCharacter}
+            <ItemDetail item={currentCharacter}
                       renderErrorMsg={
-                          (<span className="char-list__error">Please select character</span>)
-                      }/>
+                          (
+                            <span className="char-list__error">Please select character</span>
+                          )
+                      }>
+                          <Field label="gender" title="Gender" className="char-list__label char-list__label_gender"/>
+                          <Field label="died" title="Died" className="char-list__label char-list__label_died"/>
+                          <Field label="born" title="Born" className="char-list__label char-list__label_born"/>
+                          <Field label="culture" title="Culture" className="char-list__label char-list__label_culture"/>
+            </ItemDetail>
         );
 
         return (
