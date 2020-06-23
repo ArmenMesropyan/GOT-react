@@ -1,1 +1,1 @@
-export {default as GetCharacter} from './getCharacter';
+export { default as GetService } from './getService';

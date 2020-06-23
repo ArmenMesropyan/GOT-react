@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {GetCharacter} from '../../services';
+import {GetService} from '../../services';
 import {Spinner, ErrorMsg} from '../index';
 import {Table, Container, Card, CardBody, CardText, CardTitle, Row, Col} from 'reactstrap';
 import './RandomChar.scss';
@@ -41,7 +41,7 @@ const View = ({char: {name, gender, born, died, culture}} = {}) => (
 
 export default class RandomChar extends Component {
 
-    getCharacter = new GetCharacter();
+    getService = new GetService();
 
     state = {
         char: {
@@ -71,7 +71,7 @@ export default class RandomChar extends Component {
     updateData = async () => {
         try {
             const id = Math.floor(Math.random() * 140 + 25);
-            const char = await this.getCharacter.getCharacterById(id);
+            const char = await this.getService.getCharacterById(id);
             this.setState({char, loading: false});
         } catch (error) {
             this.onError();
