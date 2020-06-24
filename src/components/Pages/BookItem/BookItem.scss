@@ -5,4 +5,14 @@
             margin: 0 auto;
         }
     }
+    &__item {
+        list-style: none;
+        padding: 0;
+        & h3 {
+            text-align: center;
+        }
+        & td {
+            text-align: right;
+        }
+    }
 }

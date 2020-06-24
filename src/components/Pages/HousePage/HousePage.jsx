@@ -28,11 +28,12 @@ export default class HousePage extends Component {
                         className="house-list__item"
                         renderErrorMsg={
                             (
-                                <span className="house-list__error">Please select house</span>
+                                <span className="house-list__error error">Please select house</span>
                             )
                         }>
                           <Field label="name" title="Name" className="house-list__label house-list__label_name"/>
                           <Field label="region" title="Region" className="house-list__label house-list__label_region"/>
+                          <Field label="coatOfArms" title="Coat Of Arms" className="house-list__label house-list__label_coatofarms"/>
             </ItemDetail>
         );
 

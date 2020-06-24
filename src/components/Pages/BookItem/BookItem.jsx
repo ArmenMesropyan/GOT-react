@@ -36,14 +36,18 @@ export default class BookItem extends Component {
                 <Container>
                     <Row>
                         <Col md="6">
-                            <ItemDetail item={currentBook}
+                            <ItemDetail className="book__item book-item"
+                                item={currentBook}
                                 renderErrorMsg={
                                     (
-                                        <span className="book-list__error">Please select book</span>
+                                        <span className="book-list__error error">Please select book</span>
                                     )
                                 }>
                                 <Field label="name" title="Name" className="book-list__label book-list__label_name"/>
                                 <Field label="numberOfPages" title="Pages" className="book-list__label book-list__label_pages"/>
+                                <Field label="publisher" title="Publisher" className="book-list__label book-list__label_publisher"/>
+                                <Field label="country" title="Country" className="book-list__label book-list__label_country"/>
+                                <Field label="mediaType" title="Media Type" className="book-list__label book-list__label_mediatype"/>
                             </ItemDetail>
                         </Col>
                     </Row>
