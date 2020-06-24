@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Header, RandomChar} from '../index';
-import {CharacterPage, BookPage} from '../Pages';
+import {CharacterPage, BookPage, HousePage} from '../Pages';
 import ToggleRandomChar from '../ToggleRandomChar/ToggleRandomChar';
 
 export default class App extends Component {
@@ -27,6 +27,7 @@ export default class App extends Component {
                 <ToggleRandomChar toggleRandomChar={this.toggleRandomChar}/>
                 <CharacterPage />
                 <BookPage />
+                <HousePage />
             </>
         );
     }

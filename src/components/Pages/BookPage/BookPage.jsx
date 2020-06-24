@@ -3,7 +3,7 @@ import {ItemDetail, ItemList, Field, RowBlock} from '../../index';
 import {GetService} from '../../../services';
 import './BookPage.scss';
 
-export default class CharList extends Component {
+export default class BookPage extends Component {
 
     state = {
         currentBook: null,
