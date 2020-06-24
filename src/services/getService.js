@@ -56,8 +56,8 @@ export default class GetService {
         }
     }
 
-    transformBook({ name, authors, numberOfPages, publisher, country, mediaType, released }) {
-        return { name, authors, numberOfPages, publisher, country, mediaType, released };
+    transformBook({ name, authors, numberOfPages, publisher, country, mediaType, released, url }) {
+        return { name, authors, numberOfPages, publisher, country, mediaType, released, url };
     }
 
     transformCharacter({ name, gender, born, died, culture }) {

@@ -2,18 +2,17 @@ import React, {Component} from 'react';
 import {ItemList} from '../../index';
 import {GetService} from '../../../services';
 import {Container} from 'reactstrap';
+import {withRouter} from 'react-router-dom';
 import './BookPage.scss';
 
-export default class BookPage extends Component {
-
-    state = {
-        currentBook: null,
-    }
+class BookPage extends Component {
 
     getService = new GetService();
 
-    showBook = (currentBook) => {
-        this.setState({currentBook});
+    showBook = ({url}) => {
+        const {history} = this.props;
+        const link = url.slice(url.indexOf('/books'));
+        history.push(link);
     }
 
     render() {
@@ -29,3 +28,5 @@ export default class BookPage extends Component {
         )
     }
 }
+
+export default withRouter(BookPage);
