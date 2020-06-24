@@ -45,6 +45,17 @@ export default class GetService {
         }
     }
 
+    getBookById = async(id) => {
+        try {
+            const res = await fetch(`https://www.anapioficeandfire.com/api/books/${id}`)
+                .then(data => data.json());
+
+            return this.transformBook(res);
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
     transformBook({ name, authors, numberOfPages, publisher, country, mediaType, released }) {
         return { name, authors, numberOfPages, publisher, country, mediaType, released };
     }

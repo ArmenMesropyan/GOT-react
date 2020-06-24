@@ -2,18 +2,29 @@ import React, {Component} from 'react';
 import {ItemDetail, Field} from '../../index';
 import {GetService} from '../../../services';
 import './BookItem.scss';
+import { Container, Row, Col } from 'reactstrap';
 
 export default class BookItem extends Component {
 
     state = {
         currentBook: null,
+        error: false,
     }
 
     getService = new GetService();
 
+    async getBook(id) {
+        try {
+            const currentBook = await this.getService.getBookById(id);
+            this.setState({currentBook});
+        } catch (error) {
+            this.setState({error: true});
+        }
+    }
+
     componentDidMount() {
         const {id} = this.props;
-        console.log(id);
+        this.getBook(id);
     }
 
     render() {
@@ -22,15 +33,21 @@ export default class BookItem extends Component {
         return (
             <section className="book">
                 <h2 className="visually-hidden">Book</h2>
-                <ItemDetail item={currentBook}
-                        renderErrorMsg={
-                            (
-                                <span className="book-list__error">Please select book</span>
-                            )
-                        }>
-                          <Field label="name" title="Name" className="book-list__label book-list__label_name"/>
-                          <Field label="numberOfPages" title="Pages" className="book-list__label book-list__label_pages"/>
-                </ItemDetail>
+                <Container>
+                    <Row>
+                        <Col md="6">
+                            <ItemDetail item={currentBook}
+                                renderErrorMsg={
+                                    (
+                                        <span className="book-list__error">Please select book</span>
+                                    )
+                                }>
+                                <Field label="name" title="Name" className="book-list__label book-list__label_name"/>
+                                <Field label="numberOfPages" title="Pages" className="book-list__label book-list__label_pages"/>
+                            </ItemDetail>
+                        </Col>
+                    </Row>
+                </Container>
             </section>
         )
     }
