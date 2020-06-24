@@ -8,23 +8,27 @@ export default class App extends Component {
     state = {
         pages: [
             {label: 'Characters', link: '/characters/', active: true},
-            {label: 'Houses', link: '/Houses/'},
+            {label: 'Houses', link: '/houses/'},
             {label: 'Books', link: '/books/'},
         ],
+        activeLink: '/characters/',
         showChar: true,
     }
     toggleRandomChar = () => {
         const isShow = this.state.showChar;
         this.setState({showChar: !isShow});
     }
+    onLinkChanged = (activeLink) => {
+        this.setState({activeLink});
+    }
     render() {
-        const {pages, showChar} = this.state;
+        const {pages, showChar, activeLink} = this.state;
         const randomChar = showChar ? <RandomChar /> : null;
 
         return (
             <Router>
                 <main className="app">
-                    <Header pages={pages}/>
+                    <Header pages={pages} active={activeLink} onLinkChanged={this.onLinkChanged}/>
 
                     {randomChar}
 

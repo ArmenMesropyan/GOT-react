@@ -1,7 +1,23 @@
 .main-header {
     margin-bottom: 30px;
-    &__link,
-    &__logo {
+    &__logo a {
+        color: #fff;
         font-weight: 700;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__link a {
+        font-weight: 700;
+        color: rgb(161, 153, 153);
+        transition: 0.5s;
+        &:hover {
+            text-decoration: none;
+            color: #fff;
+            transition: 0.5s;
+        }
+        &.active {
+            color: #fff;
+        }
     }
 }
