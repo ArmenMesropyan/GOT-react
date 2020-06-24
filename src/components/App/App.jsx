@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Header, RandomChar} from '../index';
-import {CharacterPage, BookPage, HousePage} from '../Pages';
+import {CharacterPage, BookPage, HousePage, BookItem} from '../Pages';
 import ToggleRandomChar from '../ToggleRandomChar/ToggleRandomChar';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -35,8 +35,9 @@ export default class App extends Component {
                     <ToggleRandomChar toggleRandomChar={this.toggleRandomChar}/>
 
                     <Route path='/characters' component={CharacterPage}/>
-                    <Route path='/books' component={BookPage}/>
+                    <Route path='/books' exact component={BookPage}/>
                     <Route path='/houses' component={HousePage}/>
+                    <Route path='/books/:id' render={({match: {params}}) => <BookItem id={params.id}/>}/>
                 </main>
             </Router>
         );
