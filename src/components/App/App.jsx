@@ -7,7 +7,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 export default class App extends Component {
     state = {
         pages: [
-            {label: 'Characters', link: '/characters/', active: true},
+            {label: 'Characters', link: '/characters/'},
             {label: 'Houses', link: '/houses/'},
             {label: 'Books', link: '/books/'},
         ],
@@ -20,6 +20,12 @@ export default class App extends Component {
     }
     onLinkChanged = (activeLink) => {
         this.setState({activeLink});
+    }
+    setPath() {
+        this.setState({activeLink: window.location.pathname});
+    }
+    componentDidMount() {
+        this.setPath();
     }
     render() {
         const {pages, showChar, activeLink} = this.state;

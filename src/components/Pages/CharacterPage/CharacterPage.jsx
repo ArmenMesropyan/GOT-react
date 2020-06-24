@@ -28,7 +28,7 @@ export default class CharacterPage extends Component {
                         className="char-list__item"
                         renderErrorMsg={
                             (
-                                <span className="char-list__error">Please select character</span>
+                                <span className="error">Please select character</span>
                             )
                         }>
                           <Field label="gender" title="Gender" className="char-list__label char-list__label_gender"/>
